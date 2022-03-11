@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/code.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Web Map 101</title>
+</head>
+<body>
+<div id="header" class="col-md-12">   
+    <h1 class="text-center">Mexico City</h1>
+    
+</div>
+<div id="side_panel" class="col-md-3">
+    <h1 class="text-center">Attractions</h1>
+</div>    
+<div id="mapdiv" class="col-md-9"></div>
+<div id="footer" class="col-md-12">
+    <h4 id="map_coords" class="text-center">Latitude: 19.4 Longitude: -99.1 Zoom Level: 11</h4>
+    <h4 class="text-center">&copy;2022 <a href="https://www.cemitech.net/">Leandro Pereira</a></h4>
+</div>
+</body>
+<script>
+var mymap = L.map('mapdiv')
+mymap.setView([19.4, -99.1], 11);
+
+
+var backgroundLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+mymap.addLayer(backgroundLayer);
+    
+var zocaloMarker = L.marker([19.43278, -99.13333]);
+zocaloMarker.addTo(mymap);
+zocaloMarker.bindPopup("<h3>Zocalo</h3><br><a  href='https://en.wikipedia.org/wiki/Z%C3%B3calo'       target='blank'><img src='img/img1.png' width='200px'></a");
+</script>
+</html>
